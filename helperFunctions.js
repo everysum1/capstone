@@ -1,5 +1,6 @@
 // Helper functions to handle rendering things to the screen so you can focus on writing the JS logic. 
 // If you're interested, you can learn everything this file is doing by reading through the comments and doing some Googling. 
+console.log("just making a commit");
 
 var makeGameBoard = function(boardSize) {
   var board = [];
