@@ -118,7 +118,7 @@ for (var i = 0; i<gameBoard.length; i++) {
           // Remember, when in doubt, console.log the item you're working with to make sure you understand what it is at each step! 
 
 _.each(gameBoard, function (row, index) {
-  _.each(row, function(square, indx) {
+  _.each(row, function(square) {
     square.color='green';
   })
 });
@@ -131,6 +131,12 @@ _.each(gameBoard, function (row, index) {
       // Awesome! Hopefully at this point you've fully grasped that each is just another way of executing some code on each item in a collection. And that you can make that code do whatever you want it to. 
         // Let's replace our inner each loop with map, changing the colors of all the squares to purple this time. 
         // Remember that to do this, you'll have to first create an array that is just filled with the word purple 8 times. 
+
+_.each(gameBoard, function(row) {
+  var purplRow = _.map(row, function(square) {
+    square.color = "purple"
+  })
+})
 
   // One of the things you'll need to be great at as an engineer is debugging. Debugging is nothing more than problem solving, or having fun with a puzzle. 
   // As you work through this project, you will get stuck on things. That's totally normal and expected! Getting your code to work when it isn't is called debugging. When you get stuck, follow the debugging pattern we outline below. 
