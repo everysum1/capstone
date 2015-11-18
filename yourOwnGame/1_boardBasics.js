@@ -40,6 +40,15 @@
     // What is it that's being passed into each invocation of our callback? Can we name this parameter something obvious that makes it clear what it represents?
     // Let's change every square to a different color of your choosing. 
 
+    _.each(gameBoard[0], function(obj) {
+      obj.color = "pink";
+      console.log(obj);
+    });
+
+    var colorArr = ['green', 'red', 'green', 'red', 'green', 'red', 'green', 'red']
+
+
+
       // If you're not familiar with colors in JS, you can do this in three main ways: through rgb values, hex values (the way we've done it right now), or just typing in a color name like 'orange'.
         // Random aside: hex values are really useful if you're trying to create random colors :)
     // Now let's do the same thing using map on the second row of our gameBoard.
@@ -67,6 +76,19 @@
           // Set the second row of our gameBoard equal to what map returns to us. 
           // Remember, the key difference between map and each is that each purely has side effects, while map is designed to return a new array that is the same length as the old array. In order to use map properly, we must put this returned array to use. 
 
+var newRow = _.map(gameBoard[1], function(value, index) {
+  return value = {
+    position: [1, index],
+    color: "green",
+    gamePiece: '',
+    text: ''
+  }
+})
+
+console.log(newRow);
+gameBoard[1] = newRow;
+
+
     // Now that we've figured out how to use map and each to change the colors in a row, let's nest them inside of another each to change all of the rows!
       // Let's warm up to this by doing it the way we would have before we knew how to program functionally: using nested for loops. 
         // Use an outer for loop to iterate through the entire gameBoard.
@@ -75,12 +97,34 @@
           // Each iteration will access one of the squareObjs in that row. 
           // While iterating through each object, change it's color property to 'orange' (or any other color of your choosing).
 
+for (var i = 0; i<gameBoard.length; i++) {
+  for (var j = 0; j<gameBoard[i].length; j++) {
+    gameBoard[i][j].color = "orange"
+  }
+};
+
+
       // Great! Now that we've changed the color of each square to orange using for loops, let's transition this over to functional programming.
         // First, replace the inner for loop with an each statement that changes the color of each square to blue. Be sure to write a new each statement for this- don't just copy and paste the one you've written up above. We want you to get as much practice typing these out as possible!
+
+for (var i = 0; i<gameBoard.length; i++) {
+  _.each(gameBoard[i], function(value, index) {
+    gameBoard[i][index].color = 'blue';
+  })
+}
 
         // Now that all the squares are changed to blue, let's replace the outer for loop with an each statement. Again, write a whole new one from scratch here. 
           // Change the color in the inner each statement to green, just to make sure everything's working. 
           // Remember, when in doubt, console.log the item you're working with to make sure you understand what it is at each step! 
+
+_.each(gameBoard, function (row, index) {
+  _.each(row, function(square, indx) {
+    square.color='green';
+  })
+});
+
+
+
             // This is a really useful pattern to get used to. As you work with more and more complex codebases at various jobs, you won't be able to just look at the code and know exactly what you're working with; you'll have to log the results to see what the variables represent. 
           // This is where naming your variables something descriptive makes a ton of sense. What is the thing that is being passed into the callback function on either each statement? Could you name it something that reflects exactly what's being passed in?
 
